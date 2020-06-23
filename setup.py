@@ -5,6 +5,6 @@ setup(name='butterfingers',
       description='Package to generate highly realistic typos (fuzz-testing)',
       author='',
       author_email='',
-      license='',
+      license='MIT',
       packages=['butterfingers'],
       zip_safe=False)
