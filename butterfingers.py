@@ -39,19 +39,14 @@ class Butterfinger:
 	def misspell(self, text, prob=0.1):
 		probOfTypo = int(prob * 100)
 
-		buttertext = ''
+		buttertext = []
 		for letter in text:
-			lcletter = letter.lower()
-			if not lcletter in self._keyapprox.keys():
-				newletter = lcletter
+			newletter = letter.lower()
+			if not letter in self._keyapprox.keys():
+				newletter = letter
 			else:
 				if random.choice(range(0, 100)) <= probOfTypo:
-					newletter = random.choice(self._keyapprox[lcletter])
-				else:
-					newletter = lcletter
-			# go back to original case
-			if not lcletter == letter:
-				newletter = newletter.upper()
-			buttertext += newletter
+					newletter = random.choice(self._keyapprox[letter])
+			buttertext.append(newletter)
 
-		return buttertext
+		return ''.join(buttertext).lower()
